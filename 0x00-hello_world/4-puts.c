@@ -1,8 +1,10 @@
 #include <stdio.h>
 /**
+ * main - Entry point
  *
- * Description: This function prints a specific message.
+ * Description: This program prints a specific message.
  *
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
