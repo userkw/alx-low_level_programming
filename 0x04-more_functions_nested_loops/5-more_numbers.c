@@ -13,10 +13,10 @@ void more_numbers(void)
         {
             if (j > 9)
             {
-                _putchar('0' + j / 10); // Print the tens digit
+                _putchar('0' + j / 10);
             }
-            _putchar('0' + j % 10); // Print the ones digit
+            _putchar('0' + j % 10);
         }
-        _putchar('\n'); // Print a newline character after each set of numbers
-   }
+        _putchar('\n'); 
+    }
 }
