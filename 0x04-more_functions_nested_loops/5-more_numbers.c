@@ -1,22 +1,22 @@
 #include "main.h"
 
 /**
- * more_numbers - prints 10 times the numbers from 0 to 14.
+ * more_numbers - prints the numbers from 0 to 14 ten times followed by a new line.
  */
 void more_numbers(void)
 {
-    int i, j;
+    int i, num;
 
-    for (i = 0; i < 10; i++)
+    for (i = 0; i < 10; i++) // Repeat 10 times
     {
-        for (j = 0; j <= 14; j++)
+        for (num = 0; num <= 14; num++)
         {
-            if (j > 9)
+            if (num > 9)
             {
-                _putchar('0' + j / 10);
+                _putchar(num / 10 + '0'); // Print the tens digit
             }
-            _putchar('0' + j % 10);
+            _putchar(num % 10 + '0'); // Print the ones digit
         }
-        _putchar('\n'); 
+        _putchar('\n'); // New line after each iteration
     }
 }
