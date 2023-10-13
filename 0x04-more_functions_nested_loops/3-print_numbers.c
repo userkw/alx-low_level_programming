@@ -1,19 +1,15 @@
 #include "main.h"
 
-/* Prototype for the _putchar function */
-int _putchar(char c);
-
 /**
  * print_numbers - prints numbers from 0 to 9
  */
 void print_numbers(void)
 {
-	char digit = '0';
+    int i;
 
-	while (digit <= '9')
-	{
-		_putchar(digit);
-		digit++;
-	}
-	_putchar('\n');
+    for (i = 0; i < 10; i++)
+    {
+        _putchar(i + '0');
+    }
+    _putchar('\n');
 }
