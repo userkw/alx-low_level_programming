@@ -6,7 +6,7 @@
 */
 int main(void)
 {
-	int i; // Add a blank line after declarations
+	int i;
 
 	printf("Infinite loop incoming :(\n");
 
@@ -15,8 +15,6 @@ int main(void)
 	while (i < 10)
 	{
 		putchar(i);
-		// The following line caused the infinite loop.
-		// i++;
 		i++;
 	}
 
