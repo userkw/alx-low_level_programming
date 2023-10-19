@@ -1,4 +1,4 @@
-o#include "main.h"
+#include "main.h"
 /**
  * string_toupper - change all lowercase to uppercase
  * @n: pointer
