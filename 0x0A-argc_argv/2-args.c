@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "main.h"
 
 /**
  * main - Program that prints all command line arguments
@@ -10,12 +9,12 @@
  */
 int main(int argc, char *argv[])
 {
-    int j;
+    int c;
 
-    for (j = 0; j < argc; j++)
+    for (c = 0; c < argc; c++)
     {
-        printf("%s\n", argv[j]);
+        printf("%s\n", argv[c]);
     }
 
-    return 0;
+    return (0);
 }
