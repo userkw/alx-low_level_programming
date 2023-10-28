@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     {
         if (check_num(argv[i]))
         {
-            int str_to_int = atoi(argv[i]); // Convert string to int
+            int str_to_int = atoi(argv[i]);
             total += str_to_int;
         }
         else
