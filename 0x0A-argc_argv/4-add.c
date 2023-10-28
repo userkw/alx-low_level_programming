@@ -9,8 +9,7 @@
  *
  * Return: 1 if the string contains only digits, 0 otherwise
  */
-int is_digit_string(char *str)
-{
+int is_digit_string(char *str) {
     for (int i = 0; str[i] != '\0'; i++) {
         if (!isdigit(str[i])) {
             return 0;
@@ -26,8 +25,7 @@ int is_digit_string(char *str)
  *
  * Return: 0 for success, 1 for error
  */
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
     int count;
     int str_to_int;
     int total = 0;
