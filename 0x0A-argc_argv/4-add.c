@@ -4,43 +4,39 @@
 #include <string.h>
 
 /**
- * check_num - Check if a string contains only digits
- * @str: Input string
+ * is_digit_string - checks if a string contains only digits
+ * @str: the input string
  *
  * Return: 1 if the string contains only digits, 0 otherwise
  */
-int check_num(const char *str)
+int is_digit_string(char *str)
 {
-    for (int i = 0; str[i] != '\0'; i++)
-    {
-        if (!isdigit(str[i]))
-        {
-            return 0; // Not a number
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (!isdigit(str[i])) {
+            return 0;
         }
     }
-    return 1; // All characters are digits
+    return 1;
 }
 
 /**
- * main - Sum the valid numeric command-line arguments
- * @argc: Argument count
- * @argv: Argument values
+ * main - entry point of the program
+ * @argc: number of command-line arguments
+ * @argv: array of command-line arguments
  *
- * Return: 0 for success, 1 for errors
+ * Return: 0 for success, 1 for error
  */
 int main(int argc, char *argv[])
 {
+    int count;
+    int str_to_int;
     int total = 0;
 
-    for (int i = 1; i < argc; i++)
-    {
-        if (check_num(argv[i]))
-        {
-            int str_to_int = atoi(argv[i]);
+    for (count = 1; count < argc; count++) {
+        if (is_digit_string(argv[count])) {
+            str_to_int = atoi(argv[count]);
             total += str_to_int;
-        }
-        else
-        {
+        } else {
             printf("Error\n");
             return 1;
         }
