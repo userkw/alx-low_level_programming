@@ -11,16 +11,16 @@
  */
 int check_num(const char *str)
 {
-    int i;
+	int i;
 
-    for (i = 0; str[i] != '\0'; i++)
-    {
-        if (!isdigit(str[i]))
-        {
-            return (0);
-        }
-    }
-    return (1);
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if (!isdigit(str[i]))
+		{
+			return (0);
+		}
+	}
+	return (1);
 }
 
 /**
@@ -32,24 +32,24 @@ int check_num(const char *str)
  */
 int main(int argc, char *argv[])
 {
-    int total = 0;
-    int i;
+	int total = 0;
+	int i;
 
-    for (i = 1; i < argc; i++)
-    {
-        if (check_num(argv[i]))
-        {
-            int str_to_int = atoi(argv[i]);
-            total += str_to_int;
-        }
-        else
-        {
-            printf("Error\n");
-            return (1);
-        }
-    }
+	for (i = 1; i < argc; i++)
+	{
+		if (check_num(argv[i]))
+		{
+			int str_to_int = atoi(argv[i]);
+			total += str_to_int;
+		}
+		else
+		{
+			fprintf(stderr, "Error\n");
+			return (1);
+		}
+	}
 
-    printf("%d\n", total);
+	printf("%d\n", total);
 
-    return (0);
+	return (0);
 }
