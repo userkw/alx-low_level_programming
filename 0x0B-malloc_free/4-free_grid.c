@@ -1,22 +1,17 @@
-#include "main.h"
+#include <stdlib.h>
 
 /**
- * free_grid - Release memory used by a 2D grid.
- * @g: The grid to be deallocated.
- * @height: The number of rows in the grid.
- *
- * Return: None.
+ * free_grid - Frees the memory allocated for a 2D grid.
+ * @grid: The 2D grid to be freed.
+ * @height: The height of the grid.
  */
-void free_grid(int **g, int height) {
-    int row;
+void free_grid(int **grid, int height)
+{
+	if (grid == NULL)
+		return; 
 
-    if (g == NULL || height <= 0) {
-        return;
-    }
+	while (height--)
+		free(grid[height]);
 
-    for (row = 0; row < height; row++) {
-        free(g[row]);
-    }
-
-    free(g);
+	free(grid);
 }
