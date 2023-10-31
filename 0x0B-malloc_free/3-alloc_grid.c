@@ -9,16 +9,17 @@
  *         NULL on failure or if width or height is non-positive.
  */
 int **alloc_grid(int width, int height) {
+    int **g;
+    int a, d;
+
     if (width <= 0 || height <= 0) {
         return NULL;
     }
 
-    int **g = (int **)malloc(height * sizeof(int *));
+    g = (int **)malloc(height * sizeof(int *));
     if (g == NULL) {
         return NULL;
     }
-
-    int a, d;
 
     for (a = 0; a < height; a++) {
         g[a] = (int *)malloc(width * sizeof(int));
