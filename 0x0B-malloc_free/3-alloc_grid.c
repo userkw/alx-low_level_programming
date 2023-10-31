@@ -5,7 +5,7 @@
  * @width: Width of the grid.
  * @height: Height of the grid.
  *
- * Return grid pointer if successful, else return NULL
+ * Return: grid pointer if successful, else return NULL
  */
 int **alloc_grid(int width, int height) {
 	int **g;
