@@ -1,43 +1,42 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "dog.h"
+#include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 
 /**
- * new_dog - Creates a new dog
- * @name: Name of the dog
- * @age: Age of the dog
- * @owner: Owner of the dog
- * Return: A pointer to the new dog or NULL 
+ * new_dog - creates a nw dog
+ * @name: dgg name
+ * @age: dgg age
+ * @owner: dog owner
+ *
+ * Return: pointer to the nw dog or null
  */
+
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	/* Use tabs for indentation */
-	dog_t *nw_dg_pt;
-	char *nm_cp, *owner_cp;
+	dog_t *new_dog;
 
-	nw_dg_pt = malloc(sizeof(dog_t));
-
-	if (nw_dg_pt == NULL)
+	if (name == NULL || owner == NULL)
 		return (NULL);
 
-	nm_cp = malloc(strlen(name) + 1);
-	owner_cp = malloc(strlen(owner) + 1);
+	new_dog = malloc(sizeof(dog_t));
 
-	if (nm_cp == NULL || owner_cp == NULL)
+	if (new_dog == NULL)
+		return (NULL);
+
+	new_dog->name = strdup(name);
+	new_dog->owner = strdup(owner);
+
+	if (new_dog->name == NULL || new_dog->owner == NULL)
 	{
-		free(nm_cp);
-		free(owner_cp);
-		free(nw_dg_pt);
+		if (new_dog ->name == NULL)
+			free(new_dog->name);
+		if (new_dog->owner == NULL)
+			free(new_dog->owner);
+		free(new_dog);
 		return (NULL);
 	}
 
-	strcpy(nm_cp, name);
-	strcpy(owner_cp, owner);
-
-	nw_dg_pt->name = nm_cp;
-	nw_dg_pt->age = age;
-	nw_dg_pt->owner = owner_cp;
-
-	return (nw_dg_pt);
+	new_dog->age = age;
+	return (new_dog);
 }
