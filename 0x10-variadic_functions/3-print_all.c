@@ -3,49 +3,47 @@
 #include <stdio.h>
 
 /**
- * print_all - prints anything
+ * print_all - prints various types of data
  * @format: list of types of arguments passed to the function
  */
 void print_all(const char * const format, ...)
 {
-	int i = 0;
-	char *str, *sep = "";
-	va_list list;
+    int index = 0;
+    char *output, *separator = "";
 
-	va_start(list, format);
+    va_list args;
+    va_start(args, format);
 
-	while (format && format[i])
-	{
-		switch (format[i])
-		{
-			case 'c':
-				printf("%s%c", sep, va_arg(list, int));
-				break;
-			case 'i':
-				printf("%s%d", sep, va_arg(list, int));
-				break;
-			case 'f':
-				printf("%s%f", sep, va_arg(list, double));
-				break;
-			case 's':
-				str = va_arg(list, char *);
-				if (!str)
-					str = "(nil)";
-				printf("%s%s", sep, str);
-				break;
-		}
+    if (format)
+    {
+        while (format[index])
+        {
+            switch (format[index])
+            {
+                case 'c':
+                    printf("%s%c", separator, va_arg(args, int));
+                    break;
+                case 'i':
+                    printf("%s%d", separator, va_arg(args, int));
+                    break;
+                case 'f':
+                    printf("%s%f", separator, va_arg(args, double));
+                    break;
+                case 's':
+                    output = va_arg(args, char *);
+                    if (!output)
+                        output = "(nil)";
+                    printf("%s%s", separator, output);
+                    break;
+                default:
+                    index++;
+                    continue;
+            }
+            separator = ", ";
+            index++;
+        }
+    }
 
-		if (format[i + 1] && (format[i + 1] == 'c' ||
-			format[i + 1] == 'i' ||
-			format[i + 1] == 'f' ||
-			format[i + 1] == 's'))
-		{
-			sep = ", ";
-		}
-
-		i++;
-	}
-
-	printf("\n");
-	va_end(list);
+    printf("\n");
+    va_end(args);
 }
