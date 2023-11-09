@@ -8,48 +8,49 @@
  *          c: char
  *          i: integer
  *          f: float
- *          s: char * (if the string is NULL, print (nil) instead)
+ *          s: char * if the string is NULL, print nil instead
  *          any other char should be ignored
  */
 void print_all(const char * const format, ...)
 {
-	va_list args;
-	unsigned int i = 0;
+	va_list arg;
+	unsigned int a = 0;
 	char *str;
 	int num;
-	float fnum;
+	double fnum;
 	char *separator = "";
 
-	va_start(args, format);
+	va_start(arg, format);
 
-	while (format && format[i])
+	while (format && format[a])
 	{
-		switch (format[i])
+		switch (format[a])
 		{
 			case 'c':
-				printf("%s%c", separator, va_arg(args, int));
+				printf("%s%c", separator, va_arg(arg, int));
 				break;
 			case 'i':
-				printf("%s%d", separator, va_arg(args, int));
+				printf("%s%d", separator, va_arg(arg, int));
 				break;
 			case 'f':
-				printf("%s%f", separator, va_arg(args, double));
+				fnum = va_arg(arg, double); 
+				printf("%s%f", separator, fnum);
 				break;
 			case 's':
-				str = va_arg(args, char *);
+				str = va_arg(arg, char *);
 				if (str == NULL)
 					str = "(nil)";
 				printf("%s%s", separator, str);
 				break;
 			default:
-				i++;
+				a++;
 				continue;
 		}
 
 		separator = ", ";
-		i++;
+		a++;
 	}
 
 	printf("\n");
-	va_end(args);
+	va_end(arg);
 }
