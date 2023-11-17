@@ -1,41 +1,19 @@
 #include <stdlib.h>
-#include <string.h>
 #include "lists.h"
 
 /**
- * add_node_end - adds a new node
- * @head: pointer
- * @str: str
- *
- * Return: addres
+ * free_list - frees
+ * @head: list_t
  */
-list_t *add_node_end(list_t **head, const char *str)
+void free_list(list_t *head)
 {
-	list_t *nw;
-	list_t *temp = *head;
-	unsigned int len = 0;
+	list_t *tmp;
 
-	while (str[len])
-		len++;
-
-	nw = malloc(sizeof(list_t));
-	if (!nw)
-		return (NULL);
-
-	nw->str = strdup(str);
-	nw->len = len;
-	nw->next = NULL;
-
-	if (*head == NULL)
+	while (head)
 	{
-		*head = nw;
-		return (nw);
+		tmp = head->next;
+		free(head->str);
+		free(head);
+		head = tmp;
 	}
-
-	while (temp->next)
-		temp = temp->next;
-
-	temp->next = nw;
-
-	return (nw);
 }
