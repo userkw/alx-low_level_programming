@@ -3,9 +3,9 @@
 
 /**
  * move_past_star - Moves past the wildcard
- * character '*'
- * @s2: string
- * Return: Pointer
+ * character '*' in the second string.
+ * @s2: The second string.
+ * Return: Pointer to the position past the wildcard character.
  */
 
 char *move_past_star(char *s2)
@@ -17,36 +17,36 @@ char *move_past_star(char *s2)
 }
 
 /**
- * inception - Checks if the first string the pattern
- * of string
- * @s1: string
- * @s2: The second string, can contain wildcard character '*'
- * Return: 1 if the str 0 otherwise
+ * inception - Checks if the first string matches the pattern
+ * of the second string.
+ * @s1: The first string.
+ * @s2: The second string, can contain wildcard character '*'.
+ * Return: 1 if the strings match, 0 otherwise.
  */
 
 int inception(char *s1, char *s2)
 {
-	int rt = 0;
+	int ret = 0;
 
 	if (*s1 == 0)
 		return (0);
 	if (*s1 == *s2)
-		rt += wildcmp(s1 + 1, s2 + 1);
-	rt += inception(s1 + 1, s2);
-	return (rt);
+		ret += wildcmp(s1 + 1, s2 + 1);
+	ret += inception(s1 + 1, s2);
+	return (ret);
 }
 
 /**
- * wildcmp - Compares two strings
- * with wildcard support
- * @s1: The first str
- * @s2: The second str
- * Return: 1 if the str 0 otherwise.
+ * wildcmp - Compares two strings lexicographically
+ * with wildcard support.
+ * @s1: The first string.
+ * @s2: The second string, can contain wildcard character '*'.
+ * Return: 1 if the strings match, 0 otherwise.
  */
 
 int wildcmp(char *s1, char *s2)
 {
-	int rt = 0;
+	int ret = 0;
 
 	if (!*s1 && *s2 == '*' && !*move_past_star(s2))
 		return (1);
@@ -64,9 +64,9 @@ int wildcmp(char *s1, char *s2)
 		if (!*s2)
 			return (1);
 		if (*s1 == *s2)
-			rt += wildcmp(s1 + 1, s2 + 1);
-		rt += inception(s1, s2);
-		return (!!rt);
+			ret += wildcmp(s1 + 1, s2 + 1);
+		ret += inception(s1, s2);
+		return (!!ret);
 	}
 	return (0);
 }
