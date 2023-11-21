@@ -1,21 +1,40 @@
 #include <stdio.h>
-#include "main.h"
+#include <stdlib.h>
 
 /**
- * main - prints all args
- * @argc: nbr
- * @argv: array
+ * main - sop
+ * @argc:argc
+ * @argv:argv
  *
- * Return: Always 0 (Success)
+ * Return: 1 or 0
  */
+
 int main(int argc, char *argv[])
 {
-	int A;
+	int i, result;
 
-	for (a = 0; a < argc; a++)
+	result = 0;
+	if (argc < 2)
 	{
-		printf("%s\n", argv[a]);
+		printf("0\n");
+		return (0);
 	}
 
+	for (i = 1; i < argc; i++)
+	{
+		char *j;
+
+		for (j = argv[i]; *j; j++)
+		{
+			if (*j < '0' || *j  > '9')
+			{
+				printf("Error\n");
+				return (1);
+			}
+		}
+
+		result += atoi(argv[i]);
+	}
+	printf("%d\n", result);
 	return (0);
 }
