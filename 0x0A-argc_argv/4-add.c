@@ -18,12 +18,12 @@ int check_num(char *str)
     {
         if (!isdigit(str[cont]))
         {
-            return (0);
+            return 0;
         }
 
         cont++;
     }
-    return (1);
+    return 1;
 }
 
 /**
@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
         else
         {
             printf("Error\n");
-            return (1);
+            return 1;
         }
 
         count++;
@@ -58,5 +58,5 @@ int main(int argc, char *argv[])
 
     printf("%d\n", summ);
 
-    return (0);
+    return 0;
 }
