@@ -2,61 +2,69 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
-
 /**
- * check_num - checks if a string consists of digits
- * @str: the input string to be checked
+ * check_num - check - string there are digit
+ * @str: array str
  *
- * Return: 1 if the string consists of digits, 0 otherwise
+ * Return: Always 0 (Success)
  */
 int check_num(char *str)
 {
-    unsigned int cont;
+	/*Declaring variables*/
+	unsigned int cont;
 
-    cont = 0;
-    while (cont < strlen(str))
-    {
-        if (!isdigit(str[cont]))
-        {
-            return 0;
-        }
+	cont = 0;
+	while (cont < strlen(str)) /*count string*/
 
-        cont++;
-    }
-    return 1;
+	{
+		if (!isdigit(str[cont])) /*check if str there are digit*/
+		{
+			return (0);
+		}
+
+		cont++;
+	}
+	return (1);
 }
 
 /**
- * main - Print the sum of command line arguments that are numbers
- * @argc: Count of command line arguments
- * @argv: Array of command line argument strings
+ * main - Print the name of the program
+ * @argc: Count argnts
+ * @argv: Argts
  *
- * Return: 0 on success, 1 on error
+ * Return: 0 (Success)
  */
+
 int main(int argc, char *argv[])
+
 {
-    int count;
-    int str_to_int;
-    int summ = 0;
 
-    count = 1;
-    while (count < argc)
-    {
-        if (check_num(argv[count]))
-        {
-            str_to_int = atoi(argv[count]);
-            summ += str_to_int;
-        }
-        else
-        {
-            printf("Error\n");
-            return 1;
-        }
+	/*Declaring variables*/
+	int count;
+	int str_to_int;
+	int summ = 0;
 
-        count++;
-    }
+	count = 1;
+	while (count < argc) /*Goes through the whole array*/
+	{
+		if (check_num(argv[count]))
 
-    printf("%d\n", summ);
+		{
+			str_to_int = atoi(argv[count]); /*ATOI --> convert string to int*/
+			summ += str_to_int;
+		}
 
-    return 0;
+		/*Condition if one of the number contains symbols that are not digits*/
+		else
+		{
+			printf("Error\n");
+			return (1);
+		}
+
+		count++;
+	}
+
+	printf("%d\n", summ);
+
+	return (0);
 }
