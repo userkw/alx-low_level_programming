@@ -1,20 +1,21 @@
 #include <stdio.h>
+#include "main.h"
 
 /**
- * main - Program that prints all command line arguments
- * @argc: Number of arguments
- * @argv: Array of arguments
+ * main - prints all args
+ * @argc: nbr
+ * @argv: array
  *
- * Return: Always 0
+ * Return: Always 0 (Success)
  */
 int main(int argc, char *argv[])
 {
-    int c;
+	int A;
 
-    for (c = 0; c < argc; c++)
-    {
-        printf("%s\n", argv[c]);
-    }
+	for (a = 0; a < argc; a++)
+	{
+		printf("%s\n", argv[a]);
+	}
 
-    return (0);
+	return (0);
 }
