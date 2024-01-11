@@ -3,17 +3,19 @@
 /**
  * add_dnodeint_end - adds
  *
- * @head: head of the list
+ * @head: head
  * @n: value of the element
- * Return: the address of the new element
+ * Return: the address
  */
 dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 {
 	dlistint_t *h;
 	dlistint_t *nw;
+
 	nw = malloc(sizeof(dlistint_t));
 	if (nw == NULL)
 		return (NULL);
+
 	nw->n = n;
 	nw->next = NULL;
 
@@ -29,6 +31,8 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 	{
 		*head = nw;
 	}
+
 	nw->prev = h;
+
 	return (nw);
 }
